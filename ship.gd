@@ -23,9 +23,9 @@ func _physics_process(delta):
 		if acceleration > 0:
 			acceleration = max(0,acceleration - (delta/1.5))
 	if floor(target_position.x) != floor(position.x) and floor(target_position.y) != floor(position.y):
-		velocity = (acceleration*speed*Vector2(target_position.x-position.x,target_position.y-position.y).normalized())
-		var angle = Vector2.RIGHT.rotated(rotation).angle_to(global_position-target_position)
+		var angle = Vector2.LEFT.rotated(rotation).angle_to(global_position-target_position)
 		rotation = lerp(rotation,rotation+angle,delta*10)
+		velocity = (acceleration*speed*Vector2.RIGHT.rotated(rotation))
 		move_and_slide()
 
 func _input(event):
