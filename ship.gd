@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const speed = 500.0
+const speed = 300.0
 var acceleration = 0
-var max_acceleration = 1.5
+var initial_acceleration = 0.5
+var max_acceleration = 2.0
 
 var mouse_down = false
 var target_position = Vector2.ZERO
@@ -15,7 +16,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	if mouse_down:
 		if acceleration < max_acceleration:
-			acceleration += min(max_acceleration,delta/3)
+			acceleration = max(initial_acceleration,acceleration)
+			acceleration += delta/2
+			acceleration = min(max_acceleration,acceleration)
 	else:
 		if acceleration > 0:
 			acceleration = max(0,acceleration - (delta/1.5))
