@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
-const RAD = 16
+var SPEED = 150.0
+var RAD = 16
 
 var x = 1
 var y = 1
@@ -9,6 +9,10 @@ var y = 1
 func _ready():
 	x = 1 if randf()>0.5 else -1
 	y = 1 if randf()>0.5 else -1
+	var _scale = randf_range(0.75,1.25)
+	scale = Vector2(_scale,_scale)
+	RAD = 16 * _scale
+	SPEED = randf_range(125.0,175.0)
 
 func _physics_process(delta):
 	if global_position.x < 50 + RAD:
