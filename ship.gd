@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const speed = 500.0
+var acceleration = 0
+var max_acceleration = 1.5
 
 var mouse_down = false
 var target_position = Vector2.ZERO
@@ -12,15 +13,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	# todo - normalise
 	if mouse_down:
-		velocity.x = (-1 if global_position.x > target_position.x else 1) * SPEED
-		velocity.y = (-1 if global_position.y > target_position.y else 1) * SPEED
+		if acceleration < max_acceleration:
+			acceleration += min(max_acceleration,delta/3)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-
-	move_and_slide()
+		if acceleration > 0:
+			acceleration = max(0,acceleration - (delta/1.5))
+	if floor(target_position.x) != floor(position.x) and floor(target_position.y) != floor(position.y):
+		velocity = (acceleration*speed*Vector2(target_position.x-position.x,target_position.y-position.y).normalized())
+		var old_rot = rotation
+		look_at(Vector2(target_position.x,target_position.y))
+		move_and_slide()
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
