@@ -16,6 +16,7 @@ func _process(delta):
 	if spawn_timer <= 0.0:
 		spawn()
 		spawn_timer = 4.0 + $BallBag.get_child_count()
+	$Time.text = str(int(t))
 
 func spawn():
 	var v = Vector2(
