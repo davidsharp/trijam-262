@@ -6,6 +6,10 @@ const RAD = 16
 var x = 1
 var y = 1
 
+func _ready():
+	x = 1 if randf()>0.5 else -1
+	y = 1 if randf()>0.5 else -1
+
 func _physics_process(delta):
 	if global_position.x < 50 + RAD:
 		x=-x+randf_range(-0.1,0.1) # small bit of randomness

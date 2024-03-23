@@ -72,3 +72,9 @@ offset_bottom = 560.0
 
 [node name="Ball" parent="." instance=ExtResource("3_wt2f5")]
 position = Vector2(221, 167)
+
+[node name="Ball2" parent="." instance=ExtResource("3_wt2f5")]
+position = Vector2(163, 343)
+
+[node name="Ball3" parent="." instance=ExtResource("3_wt2f5")]
+position = Vector2(401, 111)
