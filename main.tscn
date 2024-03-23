@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkdp4kgxk5bvt"]
+[gd_scene load_steps=8 format=3 uid="uid://dkdp4kgxk5bvt"]
 
 [ext_resource type="PackedScene" uid="uid://cducn43557urb" path="res://ship.tscn" id="1_12x2w"]
 [ext_resource type="Texture2D" uid="uid://cprbogmh40wh2" path="res://assets/background_blue.png" id="1_h6tlw"]
+[ext_resource type="PackedScene" uid="uid://cqr2cakyimncx" path="res://ball.tscn" id="3_wt2f5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yb6tx"]
 normal = Vector2(1, 0)
@@ -45,26 +46,29 @@ shape = SubResource("WorldBoundaryShape2D_8g7a0")
 position = Vector2(50, 50)
 shape = SubResource("WorldBoundaryShape2D_2xk02")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
 offset_left = 40.0
 offset_top = 50.0
 offset_right = 50.0
 offset_bottom = 550.0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="RigidBody2D"]
 offset_left = 750.0
 offset_top = 50.0
 offset_right = 760.0
 offset_bottom = 550.0
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="ColorRect3" type="ColorRect" parent="RigidBody2D"]
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 760.0
 offset_bottom = 50.0
 
-[node name="ColorRect4" type="ColorRect" parent="."]
+[node name="ColorRect4" type="ColorRect" parent="RigidBody2D"]
 offset_left = 40.0
 offset_top = 550.0
 offset_right = 760.0
 offset_bottom = 560.0
+
+[node name="Ball" parent="." instance=ExtResource("3_wt2f5")]
+position = Vector2(221, 167)
