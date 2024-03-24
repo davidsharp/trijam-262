@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://bh50j5t2q57p7" path="res://assets/audio/zapThreeToneDown.ogg" id="4_o56hg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j7rbu"]
-radius = 16.0
 
 [node name="Ship" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
@@ -22,7 +21,7 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_b023u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -4,7 +4,7 @@ extends CharacterBody2D
 const speed = 300.0
 var acceleration = 0
 var initial_acceleration = 0.5
-var max_acceleration = 2.0
+var max_acceleration = 1.5
 
 var mouse_down = false
 var target_position = Vector2.ZERO
