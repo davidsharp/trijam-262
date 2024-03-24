@@ -43,3 +43,4 @@ func hit():
 	$CPUParticles2D.emitting = true
 	dead = true
 	$Sprite2D.hide()
+	$AudioStreamPlayer2D.play()

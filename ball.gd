@@ -16,15 +16,22 @@ func _ready():
 
 func _physics_process(delta):
 	if global_position.x < 50 + RAD:
-		x=-x+randf_range(-0.1,0.1) # small bit of randomness
+		x=1+randf_range(-0.1,0.1) # small bit of randomness
+		random_audio()
 	if global_position.x > 750 - RAD:
-		x=-x+randf_range(-0.1,0.1)
+		x=-1+randf_range(-0.1,0.1)
+		random_audio()
 	if global_position.y < 50 + RAD:
-		y=-y+randf_range(-0.1,0.1)
+		y=1+randf_range(-0.1,0.1)
+		random_audio()
 	if global_position.y > 550 - RAD:
-		y=-y+randf_range(-0.1,0.1)
+		y=-1+randf_range(-0.1,0.1)
+		random_audio()
 
 	position = position + Vector2(x*SPEED/100,y*SPEED/100)
+
+func random_audio():
+	get_node("AudioStreamPlayer2D" + str(randi_range(1,5))).play()
 
 func _on_body_entered(body):
 	if body.is_in_group('player'):
