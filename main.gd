@@ -9,9 +9,14 @@ func _ready():
 
 var t = 0.0
 var spawn_timer = 5.0
+var dead_timer = 3.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $Ship.dead: return
+	if $Ship.dead:
+		dead_timer -= delta
+		if dead_timer <= 0.0:
+			Globals.high_score = floor(t)
+			get_tree().change_scene_to_file("res://splash.tscn")
 	t += delta
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
