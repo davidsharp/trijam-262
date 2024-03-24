@@ -9,6 +9,7 @@ var max_acceleration = 1.5
 var mouse_down = false
 var target_position = Vector2.ZERO
 
+var health = 3
 var dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -40,7 +41,10 @@ func _input(event):
 		target_position = event.position
 
 func hit():
-	$CPUParticles2D.emitting = true
-	dead = true
-	$Sprite2D.hide()
+	health -= 1
 	$AudioStreamPlayer2D.play()
+	if health == 0:
+		$CPUParticles2D.emitting = true
+		dead = true
+		$Sprite2D.hide()
+		$AudioStreamPlayer2D.play()

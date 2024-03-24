@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkdp4kgxk5bvt"]
+[gd_scene load_steps=10 format=3 uid="uid://dkdp4kgxk5bvt"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4uu47"]
 [ext_resource type="PackedScene" uid="uid://cducn43557urb" path="res://ship.tscn" id="1_12x2w"]
 [ext_resource type="Texture2D" uid="uid://cprbogmh40wh2" path="res://assets/background_blue.png" id="1_h6tlw"]
 [ext_resource type="PackedScene" uid="uid://cqr2cakyimncx" path="res://ball.tscn" id="3_wt2f5"]
+[ext_resource type="Texture2D" uid="uid://dum55rymlmmhc" path="res://assets/sprites/tileRed_72.png" id="5_uow8b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yb6tx"]
 normal = Vector2(1, 0)
@@ -88,3 +89,20 @@ theme_override_font_sizes/font_size = 20
 text = "0:00"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="Health" type="Node2D" parent="."]
+position = Vector2(70, 530)
+
+[node name="Heart1" type="Sprite2D" parent="Health"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uow8b")
+
+[node name="Heart2" type="Sprite2D" parent="Health"]
+position = Vector2(35, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uow8b")
+
+[node name="Heart3" type="Sprite2D" parent="Health"]
+position = Vector2(70, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uow8b")

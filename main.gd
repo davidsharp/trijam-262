@@ -23,6 +23,9 @@ func _process(delta):
 		spawn()
 		spawn_timer = 4.0 + $BallBag.get_child_count()
 	$Time.text = str(int(t))
+	if $Ship.health < 3: $Health/Heart3.hide()
+	if $Ship.health < 2: $Health/Heart2.hide()
+	if $Ship.health < 1: $Health/Heart1.hide()
 
 func spawn():
 	var v = Vector2(
