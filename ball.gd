@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var SPEED = 150.0
 var RAD = 16
@@ -24,10 +24,9 @@ func _physics_process(delta):
 	if global_position.y > 550 - RAD:
 		y=-y+randf_range(-0.1,0.1)
 
-	velocity = Vector2(x*SPEED,y*SPEED)
+	position = position + Vector2(x*SPEED/100,y*SPEED/100)
 
-	move_and_slide()
-
-func _on_area_2D_body_entered(body):
+func _on_body_entered(body):
+	print(body)
 	if body.is_in_group('player'):
 		print('player hit')
