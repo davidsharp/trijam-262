@@ -9,11 +9,14 @@ var max_acceleration = 2.0
 var mouse_down = false
 var target_position = Vector2.ZERO
 
+var dead = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	if dead: return
 	if mouse_down:
 		if acceleration < max_acceleration:
 			acceleration = max(initial_acceleration,acceleration)
@@ -35,3 +38,8 @@ func _input(event):
 
 	if event is InputEventMouseMotion and mouse_down:
 		target_position = event.position
+
+func hit():
+	$CPUParticles2D.emitting = true
+	dead = true
+	$Sprite2D.hide()

@@ -28,9 +28,6 @@ rotation = 0.0523599
 texture = ExtResource("1_h6tlw")
 stretch_mode = 1
 
-[node name="Ship" parent="." instance=ExtResource("1_12x2w")]
-position = Vector2(360, 331)
-
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -72,6 +69,9 @@ offset_left = 40.0
 offset_top = 550.0
 offset_right = 760.0
 offset_bottom = 560.0
+
+[node name="Ship" parent="." instance=ExtResource("1_12x2w")]
+position = Vector2(360, 331)
 
 [node name="BallBag" type="Node2D" parent="."]
 

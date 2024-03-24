@@ -27,6 +27,7 @@ func _physics_process(delta):
 	position = position + Vector2(x*SPEED/100,y*SPEED/100)
 
 func _on_body_entered(body):
-	print(body)
 	if body.is_in_group('player'):
 		print('player hit')
+		body.hit()
+		queue_free()

@@ -11,6 +11,7 @@ var t = 0.0
 var spawn_timer = 5.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if $Ship.dead: return
 	t += delta
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
